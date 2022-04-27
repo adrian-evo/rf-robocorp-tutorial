@@ -1,0 +1,18 @@
+tasks:
+    SeleniumTask:
+      robotTaskName: Image Search With Selenium
+
+    PlaywrightTask:
+      robotTaskName: Image Search With Playwright
+
+    MyCustomTask:
+      robotTaskName: My Custom Task
+
+condaConfigFile: conda.yaml
+artifactsDir: output
+PATH:
+  - .
+PYTHONPATH:
+  - .
+ignoreFiles:
+  - .gitignore
