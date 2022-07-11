@@ -12,31 +12,41 @@ Robocorp is mainly a **RPA** solution based on Robot Framework. It is going one 
 
 # 1. Robocorp QuickStart
 
-The easier is to start with Robocorp, Rcc tool, which is automatically installing everything needed for run: https://robocorp.com/
+The easier is to start with Robocorp, Rcc toolchain, which is automatically installing everything needed for run: https://robocorp.com/
 
-**Note**: For just running the sample tasks listed in robot.yaml file, the first 2 points below are optional and you can start directly with 3rd point, i.e., download this project, run _tools\install rcc.bat_ and then run the sample tasks. That's it.
+1. Download this project release
 
-1. In order to visualize and modify the robot code, there are 3 alternatives:
-    - **Visual Studio Code** with extensions (free for personal or commercial use): https://robocorp.com/docs/developer-tools/visual-studio-code/overview
-    - Robocorp Lab (free for personal or non-commercial internal business use)
-    - PyCharm Community with Robocorp (free, open source)
+2. Install Robocorp Rcc toolchain
 
-2. If VS Code is the preferred approach, install the two extensions from the above link or from within VS Code: **Robocorp Code** and **Robot Framework Language Server**
-
-3. Download this project
-    - Optional: open the downloaded _rf-robocorp-tutorial_ folder within VSCode
-
-4. Run _tools\install rcc.bat_ to install Rcc tool automatically and set the Path environment variable. Otherwise, do it manually:
+    Execute _tools\install rcc.bat_ to install Rcc tool automatically and set the Path environment variable. Otherwise, do it manually:
 
     Download **Rcc tool** from https://downloads.robocorp.com/rcc/releases/latest/windows64/rcc.exe and copy it anywhere in the PATH (e.g. open Command prompt and type path. The path could be e.g. %userprofile%\Rcc\)
 
-5. Optional: Open cmd within project directory and run once:
+    Open cmd within project directory and run once:
     
     - Disable tracking: `rcc configure identity --do-not-track`
     
     - Check: `rcc configure identity`
 
-6. Edit _env.json_ variables as needed (optional or later)
+3. Run the first task
+
+    Open command prompt and run `rcc run -t SeleniumTask -e devdata\env.json`
+
+    On first run the full environment is loaded, thus the first run will take up to 5 minutes to run.
+
+4. In order to visualize and modify the robot code, there are 3 alternatives:
+    - **Visual Studio Code** with extensions (free for personal or commercial use): https://robocorp.com/docs/developer-tools/visual-studio-code/overview
+    - Robocorp Lab (free for personal or non-commercial internal business use)
+    - PyCharm Community with Robocorp (free, open source)
+
+5. If VS Code is the preferred approach, install the two extensions from the above link or from within VS Code: **Robocorp Code** and **Robot Framework Language Server**
+
+6. Open the downloaded _rf-robocorp-tutorial_ folder within VSCode and check the following files:
+
+- Environment settings: _conda.yaml_
+- Tasks names: _robot.yaml_
+- Environment variables: _env.json_ and _env-my.json_
+- Robot tasks: _tasks-*.robot
 
 7. Run within VS Code or command line:
     - Open project folder within Visual Studio Code, press CTRL+SHIFT+P, _Robocorp: Run Robot_, Choose task to run (will use default devdata/env.json)
@@ -52,6 +62,8 @@ The easier is to start with Robocorp, Rcc tool, which is automatically installin
 
          `rcc run -t MyCustomTask`
 
+
+
 ## Notes for Robocorp and Rcc.exe
 
 - Environment is downloaded under _AppData\Local\robocorp_. This folder can be removed in order to cleanup everything and start from scratch the above commands.
@@ -64,20 +76,18 @@ The easier is to start with Robocorp, Rcc tool, which is automatically installin
 
 Instead of using Robocorp and Rcc tool as described above, it is also possible to setup manually Python environment and corresponding libraries and run the tasks with Robot Framework:
 
-1. Download and install **Python 3.10.1** from https://python.org under a local directory, e.g. _C:\Python3x_
+1. Download this project release
+
+2. Environment setup
+
+Download and install **Python 3.10.1** from https://python.org under a local directory, e.g. _C:\Python3x_
     - Choose e.g.: Customize installation, All optional features and Add Python to environment variables option.
     - Make sure that both _Python_ and _Python\Scripts_ directories are added to Path System variable.
 
-2. Download and install **Node.js 16.14.2** from https://nodejs.org/en/download. It can be installed in the default Program Files location.
+Download and install **Node.js 16.14.2** from https://nodejs.org/en/download. It can be installed in the default Program Files location.
     - For upgrade there is no need to remove previous installation, just install the upgrade in the same location. Also, there is no need to reinstall dependencies during upgrade.
 
-3. Download and install **Visual Studio Code**, then install **Robot Framework Language Server** extension.
-    - Within VSCode go to Extension settings and set Robot > Language-server: Python to e.g. _C:\Python3x\python.exe_ or match with above Python installation directory.
-
-4. Download this project
-    - Optional: open the downloaded _rf-robocorp-tutorial_ folder within VSCode
-
-5. Run the following commands in order to update Python libraries used by this project:
+3. Run the following commands in order to install Python libraries used by this project:
 
      > `pip install robotframework`
 
@@ -93,7 +103,16 @@ Instead of using Robocorp and Rcc tool as described above, it is also possible t
 
     > `webdrivermanager chrome --linkpath C:\Python3x` (or any folder in the PATH)
 
-6. Edit _env.py_ variables as needed (optional or later)
+4. install **Visual Studio Code**
+
+5. Install the two extensions: **Robocorp Code** and **Robot Framework Language Server**
+
+    - Within VSCode go to Extension settings and set Robot > Language-server: Python to e.g. _C:\Python3x\python.exe_ or match with above Python installation directory.
+
+6. Open the downloaded _rf-robocorp-tutorial_ folder within VSCode and check the following files:
+
+- Environment variables: _env.py_ and _env-my.py_
+- Robot tests: _test-*.robot
 
 7. Run the test or task with the following command:
 
