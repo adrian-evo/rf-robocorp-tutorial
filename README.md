@@ -1,3 +1,7 @@
+# Obsolete
+
+The project is obsolete, due to the fact that Robocorp moved away from Robot Framework, and Rcc toolchain is not open source anymore. I will use full Python projects and pure Playwright in the future. No need to use proprietary tools for running such tasks.
+
 # rf-robocorp-tutorial
 
 Robot Framework Tutorial with Robocorp, including Selenium and Playwright libraries. The project can be used as a starting point for automating own repetitive tasks, or to automatize the manual repetitive tests and verifications performed e.g., during a software development project. Robot Framework makes it easier for anyone with basic scripting knowledge (i.e., not necessarily a developer) to implement and run own automated tests and verifications, that otherwise would be run manually.
